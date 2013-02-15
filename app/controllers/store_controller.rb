@@ -10,5 +10,10 @@ class StoreController < ApplicationController
   def index
     @products = Product.order(:title)
     @cart = current_cart
+    if session[:visit_counter]
+    	session[:visit_counter] = session[:visit_counter] + 1
+    else
+    	session[:visit_counter] = 1
+    end
   end
 end

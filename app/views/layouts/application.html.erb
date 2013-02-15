@@ -15,6 +15,10 @@
   </div>
   <div id="columns">
     <div id="side">
+      <span style="color:white"><%= @time %></span>
+      <% if @visit_cunter > 5 %>
+      <span id="cunterVisit" style="color:white">Liczba odwiedzin: <%= @visit_cunter %></span>
+        <% end %>
       <!-- START:hidden_div -->
       <% if @cart %>
         <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>

@@ -23,9 +23,13 @@ class OrderNotifier < ActionMailer::Base
   # with the following lookup:
   #
   #   en.order_notifier.shipped.subject
-  #
   def shipped(order)
     @order = order
     mail to: order.email, subject: 'Pragmatic Store Order Shipped'
   end
+  def shipped_date_add(order)
+    @order = order
+    mail to: order.email, subject: 'Shipped Date added'
+  end
+  #
 end

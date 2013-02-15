@@ -8,6 +8,7 @@
 #---
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :time, :visit_counter
 
   private
 
@@ -17,6 +18,19 @@ class ApplicationController < ActionController::Base
       cart = Cart.create
       session[:cart_id] = cart.id
       cart
+    end
+
+    def time
+    	@time = Time.now
+    end
+    def visit_counter
+    if session[:visit_counter]
+      @visit_cunter = session[:visit_counter]
+    else
+            @visit_cunter = 1
+    end
+
+
     end
 
 end
